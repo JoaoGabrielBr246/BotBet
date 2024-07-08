@@ -8,7 +8,7 @@ driver_path = '/usr/local/bin/geckodriver'
 service = Service(driver_path)
 driver = webdriver.Firefox(service=service, options=options)
 
-url = 'https://luckbet777.bet/?r=elkgktar'
+url = 'https://url.com'
 
 try:
     while True:
