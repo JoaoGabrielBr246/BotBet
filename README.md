@@ -20,7 +20,7 @@ Este projeto utiliza Selenium para automatizar tarefas de navegação web usando
    
    cd BotBet
 
-    Instale as dependências do Python:
+## Instale as dependências do Python:
 
     pip install -r requirements.txt
 
