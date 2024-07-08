@@ -24,8 +24,6 @@ Este projeto utiliza Selenium para automatizar tarefas de navegação web usando
 
     pip install -r requirements.txt
 
-    Certifique-se de que o arquivo requirements.txt contenha o pacote selenium.
-
 Configuração do GeckoDriver
 
 O GeckoDriver é necessário para automatizar o Firefox com o Selenium. Siga as instruções abaixo para instalá-lo:
