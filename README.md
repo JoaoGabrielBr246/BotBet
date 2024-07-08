@@ -18,7 +18,7 @@ Este projeto utiliza Selenium para automatizar tarefas de navegação web usando
    ```
    git clone https://github.com/JoaoGabrielBr246/BotBet.git
    
-   cd ProjetoBotSite
+   cd BotBet
 
     Instale as dependências do Python:
 
