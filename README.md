@@ -1,66 +1,74 @@
-# BotBet
+# README - Automação Web com Selenium
 
-## Projeto BotSite
+Este projeto é um exemplo simples de como automatizar a abertura de um site específico usando Selenium com Python.
+### Pré-requisitos:
 
-Este projeto utiliza Selenium para automatizar tarefas de navegação web usando o navegador Firefox.
+Certifique-se de ter o Python instalado no seu sistema. Você pode baixá-lo em python.org e seguir as instruções de instalação para o seu sistema operacional.
+Instalação das Dependências
+## Instale o Selenium:
+Abra o terminal (ou prompt de comando no Windows) e execute o seguinte comando:
+```
+pip install selenium
+```
 
-## Configuração
+## Baixe e configure o WebDriver:
 
-### Pré-requisitos
+### ChromeDriver (para Google Chrome):
 
-- Python 3.x instalado (recomenda-se usar um ambiente virtual)
-- GeckoDriver para Firefox (veja instruções abaixo)
+Baixe o ChromeDriver compatível com sua versão do Google Chrome em [sites.google.com/chromedriver](https://developer.chrome.com/docs/chromedriver/downloads).
+Extraia o arquivo baixado e adicione o caminho do executável ao PATH do sistema.
 
-### Instalação das Dependências
+### Configurando no Linux:
+Para adicionar o ChromeDriver ao seu PATH no Linux, você pode editar o arquivo ~/.bashrc ou ~/.profile e adicionar a seguinte linha (substituindo /caminho/para/chromedriver pelo caminho onde você extraiu o ChromeDriver):
+```
+export PATH="/caminho/para/chromedriver:$PATH"
+```
+Salve o arquivo e execute source ~/.bashrc (ou source ~/.profile) para aplicar as mudanças sem reiniciar o terminal.
 
-1. Clone este repositório:
+### Configurando no Windows:
+Adicione o diretório onde o ChromeDriver está localizado ao PATH do sistema:
+Procure "Editar variáveis de ambiente" na barra de pesquisa do Windows e abra.
+Na janela que se abre, clique em "Variáveis de Ambiente".
+Na seção "Variáveis do Sistema", clique em "Path" e depois em "Editar".
+Adicione o caminho completo para o diretório onde o ChromeDriver está localizado, por exemplo, C:\caminho\para\chromedriver, e clique em OK.
 
-   ```
-   git clone https://github.com/JoaoGabrielBr246/BotBet.git
-   
-   cd BotBet
+### GeckoDriver (para Mozilla Firefox):
 
-## Instale as dependências do Python:
+Baixe o GeckoDriver compatível com sua versão do Firefox em [github.com/mozilla/geckodriver/releases](https://github.com/mozilla/geckodriver/releases).
+Extraia o arquivo baixado e adicione o caminho do executável ao PATH do sistema.
 
-    pip install -r requirements.txt
+### Configurando no Linux:
+Para adicionar o GeckoDriver ao seu PATH no Linux, você pode seguir os mesmos passos descritos acima para o ChromeDriver, substituindo o caminho para o GeckoDriver.
 
-Configuração do GeckoDriver
+### Configurando no Windows:
+Siga os passos descritos acima para adicionar, como feito para o Chrome, o diretório do GeckoDriver ao PATH do sistema no Windows.
 
-O GeckoDriver é necessário para automatizar o Firefox com o Selenium. Siga as instruções abaixo para instalá-lo:
-Linux
-
-    Baixe o GeckoDriver adequado para o seu sistema operacional e versão do Firefox no site oficial do Selenium.
-
-    Extraia o arquivo baixado e mova o executável geckodriver para um diretório no seu PATH:
-
-    tar -xvzf geckodriver-vX.Y.Z-linux64.tar.gz
-    chmod +x geckodriver
-    sudo mv geckodriver /usr/local/bin/
-
-    Substitua geckodriver-vX.Y.Z-linux64.tar.gz pelo nome do arquivo que você baixou.
-
-Windows
-
-    Baixe o GeckoDriver adequado para o seu sistema operacional e versão do Firefox no site oficial do Selenium.
-
-    Extraia o arquivo baixado e adicione o diretório contendo o executável geckodriver.exe ao seu PATH do sistema.
-
-macOS
-
-    Instale o GeckoDriver usando o Homebrew:
-    
-    brew install geckodriver
-
-Executando o Script
-
-Para executar o script bot.py:
-
+## Executando o Bot
+Para executar o bot, siga as instruções adequadas para seu sistema operacional:
+### No Linux
+Abra o terminal e navegue até o diretório do projeto:
+```
+cd /caminho/para/o/diretorio/BotBet
+```
+Execute o script Python:
 ```
 python bot.py
 ```
+### No Windows
 
-O script abrirá o navegador Firefox, navegará até o URL especificado, esperará 8 segundos, fechará o navegador e repetirá o processo. Encerre o script manualmente pressionando Ctrl+C.
+Abra o prompt de comando e navegue até o diretório do projeto:
+```
+cd C:\caminho\para\o\diretorio\BotBet
+```
+Execute o script Python:
+```
+python bot.py
+```
+## Observações
 
-    Certifique-se de que o Firefox esteja instalado no seu sistema operacional.
-    Caso encontre problemas com o GeckoDriver, verifique a versão do Firefox instalada e use o GeckoDriver compatível.
+Certifique-se de que o WebDriver correto esteja instalado e configurado no seu PATH antes de executar o script.
+O script abrirá o navegador (Chrome ou Firefox), visitará um site que você especificará durante a execução do programa, aguardará por 8 segundos, fechará o navegador e repetirá o processo indefinidamente até ser interrompido pelo usuário (pressionando Ctrl + C).
 
+## Encerrando o Bot
+
+Para encerrar o bot manualmente, pressione Ctrl + C no terminal ou prompt de comando onde o script está sendo executado.
