@@ -1,23 +1,51 @@
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import time
+import shutil
 
-options = Options()
-driver_path = '/usr/local/bin/geckodriver'
-service = Service(driver_path)
-driver = webdriver.Firefox(service=service, options=options)
+def get_webdriver():
+    chrome_driver_path = shutil.which('chromedriver')
+    firefox_driver_path = shutil.which('geckodriver')
 
-url = 'https://url.com'
+    try:
+        if chrome_driver_path:
+            options = ChromeOptions()
+            service = ChromeService(chrome_driver_path)
+            return webdriver.Chrome(service=service, options=options)
+        elif firefox_driver_path:
+            options = FirefoxOptions()
+            service = FirefoxService(firefox_driver_path)
+            return webdriver.Firefox(service=service, options=options)
+        else:
+            raise Exception("Nenhum WebDriver adequado encontrado. Certifique-se de que o ChromeDriver ou o GeckoDriver estejam instalados e no PATH.")
+    except Exception as e:
+        print(f"Erro ao iniciar o ChromeDriver: {e}")
+        if firefox_driver_path:
+            options = FirefoxOptions()
+            service = FirefoxService(firefox_driver_path)
+            return webdriver.Firefox(service=service, options=options)
+        else:
+            raise Exception("Nenhum WebDriver adequado encontrado. Certifique-se de que o GeckoDriver esteja instalado e no PATH.")
+
+url = str(input("Digite o site que deseja visitar: "))
+
+n = 0
 
 try:
     while True:
+        driver = get_webdriver()
         driver.get(url)
         time.sleep(8)
         driver.quit()
+        n += 1
         time.sleep(1)
-        driver = webdriver.Firefox(service=service, options=options)
 
 except KeyboardInterrupt:
     print("Bot encerrado pelo usuário.")
+    print(f"Foi feito {n} acessos ao site {url}")
     driver.quit()
+except Exception as e:
+    print(f"Erro: {e}")
